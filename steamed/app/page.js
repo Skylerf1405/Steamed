@@ -1,15 +1,14 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-const DealsList = dynamic(() => import("./dealslist"), { ssr: false });
-export default function Home() {
+import Link from "next/link";
 
-  return (
-    <div className="bg-gray-900 min-h-screen text-white">
-      <div className="container mx-auto py-8">
-        <h1 className="text-4xl font-bold mb-6">Welcome to the Game Deals Page</h1>
-        <DealsList />
-      </div>
-    </div>
-  );
+
+export default function Page() {
+
+    return (
+        <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+            <h1 className="text-4xl font-bold mb-4">Welcome to Steamed</h1>
+            <Link className="text-blue-500 hover:underline" href="/steamed/">
+                Sign In
+            </Link>
+        </main>
+    );
 }
