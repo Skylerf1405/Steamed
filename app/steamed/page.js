@@ -7,11 +7,11 @@ export default function SignInPage() {
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
 
   async function handleSignIn() {
-    try {
-      await gitHubSignIn();
-    } catch (error) {
-      console.log(error);
-    }
+        try {
+        await gitHubSignIn();
+        } catch (error) {
+        console.log(error);
+        }
   }
 
   async function handleSignOut() {
