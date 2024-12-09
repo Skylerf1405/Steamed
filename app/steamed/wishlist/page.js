@@ -12,7 +12,6 @@ export default function Wishlist() {
     const [loading, setLoading] = useState(true);
   
     useEffect(() => {
-        // Monitor user authentication state
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
           console.log("Current user:", currentUser); 
           setUser(currentUser);

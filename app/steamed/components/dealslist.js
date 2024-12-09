@@ -52,27 +52,6 @@ const DealsList = ({deal}) => {
     (deal) => deal.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // const addToWishlist = async (deal) => {
-  //   const user = auth.currentUser;
-
-  //   if (!user) {
-  //       alert("Please sign in to add to wishlist");
-  //       return;
-  //   }
-
-  //   try {
-  //       const wishlistRef = doc(db,"wishlists", user.uid);
-
-  //       await setDoc(wishlistRef, {
-  //           deals: arrayUnion(deal)
-  //       }, {merge: true});
-  //       alert("Deal added to wishlist");
-  //   } catch (error) {
-  //       console.log(error);
-  //   }
-  // }
-
-
   if (loading) return <p>Loading deals...</p>;
   if (error) return <p>Error: {error}</p>;
 
