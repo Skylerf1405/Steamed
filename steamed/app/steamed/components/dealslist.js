@@ -1,8 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { doc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { auth, db } from "../_utils/firebase";
+import { useUserAuth } from "../_utils/auth_context";
+import { addToWishlist } from "./wishlist";
 
-const DealsList = () => {
+
+
+const DealsList = ({deal}) => {
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -44,8 +50,27 @@ const DealsList = () => {
 
   const filteredDeals = deals.filter(
     (deal) => deal.title.toLowerCase().includes(searchQuery.toLowerCase())
-);
+  );
 
+  // const addToWishlist = async (deal) => {
+  //   const user = auth.currentUser;
+
+  //   if (!user) {
+  //       alert("Please sign in to add to wishlist");
+  //       return;
+  //   }
+
+  //   try {
+  //       const wishlistRef = doc(db,"wishlists", user.uid);
+
+  //       await setDoc(wishlistRef, {
+  //           deals: arrayUnion(deal)
+  //       }, {merge: true});
+  //       alert("Deal added to wishlist");
+  //   } catch (error) {
+  //       console.log(error);
+  //   }
+  // }
 
 
   if (loading) return <p>Loading deals...</p>;
@@ -106,6 +131,9 @@ const DealsList = () => {
             <a href={`https://www.cheapshark.com/redirect?dealID=${deal.dealID}`} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
               View Deal
             </a>
+            <div> 
+              <button onClick={() => addToWishlist(deal)}>Add To Wishlist</button>
+            </div>
           </div>
         ))}
       </div>

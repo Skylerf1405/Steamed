@@ -24,7 +24,7 @@ export default function SignInPage() {
 
 return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white pb-6">
-        <header className="w-full py-6 bg-blue-800 text-center shadow-lg fixed top-0 ">
+        <header className="w-full py-6 bg-blue-800 text-center shadow-lg fixed top-0">
             <h1 className="text-4xl font-bold">Steamed Sign In</h1>
         </header>
         <div className="w-full max-w-md p-6 bg-gray-800 rounded-lg shadow-md mt-24">
@@ -44,9 +44,12 @@ return (
                     >
                         View Deals
                     </Link>
-                    <p className="text-blue-500 hover:underline cursor-pointer">
+                    <Link 
+                        href="/steamed/wishlist" 
+                        className="text-blue-500 hover:underline cursor-pointer"
+                    >       
                         View Wish List
-                    </p>
+                    </Link>
                 </div>
             ) : (
                 <div className="text-center">
