@@ -13,14 +13,14 @@ export default function Wishlist() {
   
     useEffect(() => {
       if (typeof window !== "undefined") {
-          const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log("Current user:", currentUser); 
-            setUser(currentUser);
-            setLoading(false);
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+          console.log("Current user:", currentUser); 
+          setUser(currentUser);
+          setLoading(false);
         });
         return () => unsubscribe(); 
       }
-      }, []);
+    }, []);
   
       useEffect(() => {
         const fetchWishlist = async () => {
